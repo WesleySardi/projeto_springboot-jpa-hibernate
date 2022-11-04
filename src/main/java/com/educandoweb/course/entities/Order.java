@@ -23,11 +23,11 @@ public class Order implements Serializable {
 
     private Integer orderStatus;
 
-    @ManyToOne
+    @ManyToOne      // Many Order terão um User
     @JoinColumn(name = "client_id")
     private User client;
 
-    @OneToMany(mappedBy = "id.order")
+    @OneToMany(mappedBy = "id.order")      // One Order terão many OrderItem
     private Set<OrderItem> items = new HashSet<>();
 
     public Order() {
